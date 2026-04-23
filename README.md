@@ -1,11 +1,21 @@
-> ### 📌 Archived reference
->
-> Built **2023** during the Clarusway AWS DevOps curriculum. Kept public as a reference for the patterns I use day-to-day.
->
-> Declarative Jenkinsfile pipeline demonstrating stages, agents, environment variables, credentials, and post-build actions.
->
-> **Stack:** Jenkins · Groovy · Java
->
-> ➡️ **Current work:** my portfolio at **[https://omerdengiz.com](https://omerdengiz.com)** — a static site on AWS S3 + CloudFront + Lambda@Edge, provisioned with Terraform across two AWS accounts.
+# jenkinsfile-pipeline-project
 
----# jenkinsfile-pipeline-project
+A minimal Jenkins declarative pipeline that compiles and runs a single Java file. Reference for Jenkinsfile syntax — stages, steps, shell execution.
+
+**Stack:** Jenkins · Groovy · Java
+
+## Pipeline
+
+```groovy
+pipeline {
+  agent any
+  stages {
+    stage('build') { sh 'javac Hello.java' }
+    stage('run')   { sh 'java Hello' }
+  }
+}
+```
+
+## For my current Jenkins / CI work
+
+See **[`ofdengiz/petclinic-microservices-with-db`](https://github.com/ofdengiz/petclinic-microservices-with-db)** — end-to-end Jenkins CI/CD with multi-branch pipelines, ECR, Rancher-managed EKS, and Prometheus + Grafana monitoring.
